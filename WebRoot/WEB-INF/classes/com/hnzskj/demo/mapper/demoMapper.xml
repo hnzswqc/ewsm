@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致
+ -->
+<mapper namespace="com.hnzskj.demo.mapper.DemoMapper">
+    
+    <!-- 查询参数 -->
+    <sql id="fields">
+    	id,name
+    </sql>
+    
+    <!-- 分页，通过map进行设置，map的key为pageBean -->
+    <sql id="limitSql" >
+    	 <if test="null!=pageBean" >
+    		 limit ${pageBean.limit} offset ${pageBean.offset}
+    	 </if>
+    </sql>
+    
+    <!-- 动态where条件，通过map进行设置，map的key为demo，demo对应的就是service中的modelName -->
+    <sql id="dynamicWhere" >
+	  	<where>
+		    <if test="@org.apache.commons.lang.StringUtils@isNotBlank(demo.id)" >
+		        and id = #{demo.id} 
+		    </if>
+		    <if test="@org.apache.commons.lang.StringUtils@isNotBlank(demo.name)" >
+		        and name like '%'+#{demo.name}+'%'  
+		    </if>
+	  	</where>
+  	</sql>
+  
+  	<!-- 添加 -->
+	<insert id="add" parameterType="Demo">
+		insert into demo(<include refid="fields" />) values(#{id},#{name})
+	</insert>
+	
+	<!-- 修改 -->
+	<update id="update" parameterType="Demo">
+		update demo set name=#{name}  where id=#{id}
+	</update>
+	
+	<!-- 删除 -->
+	<delete id="deleteByPrimaryKey" parameterType="Demo">
+		delete from demo where id=#{id}
+	</delete>
+	
+	<!-- 批量删除 -->
+	<delete id="delete" >
+		delete from demo where id in
+	  <foreach collection="array" index="index" item="item" open="(" separator="," close=")">  
+           #{item}   
+   	  </foreach>  
+	</delete>
+	
+ 	<!-- mybsits_config中配置的alias类别名,也可直接配置resultType为类-->  
+	<select id="findByPrimaryKey" parameterType="Demo" resultType="Demo">
+		select <include refid="fields" /> from demo where id=#{id}
+	</select>
+	
+	<!-- 根据条件查询一条数据 -->
+	<select id="findByExample" parameterType="Demo" resultType="Demo">
+		select <include refid="fields" /> from demo 
+		<include refid="dynamicWhere" />
+	</select>
+	
+	<!-- 查询数量 -->
+	<select id="findCount" parameterType="java.util.Map" resultType="java.lang.Integer">
+		select count(1) from demo 
+		<include refid="dynamicWhere" />
+	</select>
+	
+	
+	<!-- 分页查询，pageBean为null，默认查询所有的数据 -->
+	<select id="find" parameterType="java.util.Map"  resultType="Demo" >
+		select <include refid="fields" /> from demo 
+		<include refid="dynamicWhere" />
+		<include refid="limitSql" />
+		ORDER BY time desc 
+	</select>
+	
+	
+</mapper>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致
+ -->
+<mapper namespace="com.hnzskj.demo.mapper.DemoMapper">
+	<!-- 生成list集合 -->
+	<resultMap id="demo" type="Demo">
+        <id column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR" />
+    </resultMap>
+    
+    
+    <!-- 查询参数 -->
+    <sql id="fields">
+    	id,name
+    </sql>
+    <!-- 分页 -->
+    <sql id="limitSql" >
+	  	limit #{limit} offset #{endIndex}
+    </sql>
+    <!-- 动态where条件 -->
+    <sql id="dynamicWhere" >
+	  	<where>
+		    <if test="id != null" >
+		        and id = #{id} 
+		    </if>
+		    <if test="name != null" >
+		        and name = #{name}
+		    </if>
+	  	</where>
+  	</sql>
+  
+	<insert id="add" parameterType="Demo">
+		insert into demo(<include refid="fields" />) values(#{id},#{name})
+	</insert>
+	
+	<update id="update" parameterType="Demo">
+		update demo set name=#{name}  where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="Demo">
+		delete from demo where id=#{id}
+	</delete>
+	
+ 	<!-- mybsits_config中配置的alias类别名,也可直接配置resultType为类-->  
+	 
+	<select id="findByPrimaryKey" parameterType="Demo" resultType="Demo">
+		select <include refid="fields" /> from demo where id=#{id}
+	</select>
+	
+	
+	<select id="findCountByParam" parameterType="Demo" resultType="java.lang.Integer">
+		select count(1) from demo 
+		<include refid="dynamicWhere" />
+	</select>
+	
+	<select id="findByParam"  parameterType="Demo" resultType="demo">
+		select <include refid="fields" /> from demo 
+		<include refid="dynamicWhere" />
+		<include refid="limitSql" />
+	</select>
+	
+	
+	<select id="findAll" parameterType="java.util.Map" resultType="demo" >
+		select <include refid="fields" /> from demo 
+		<where>
+		    <if test="id != null" >
+		        and id = #{id} 
+		    </if>
+		    <if test="name != null" >
+		        and name = #{name}
+		    </if>
+	  	</where>
+		limit #{limit} offset #{endIndex}
+	</select>
+	
+	
+	
+	<select id="findByPage" parameterType="java.util.Map"  resultType="demo" >
+		select <include refid="fields" /> from demo 
+		<where>
+		    <if test="demo.id != null" >
+		        and id = #{demo.id} 
+		    </if>
+		    <if test="demo.name != null" >
+		        and name = #{demo.name}
+		    </if>
+	  	</where>
+		limit #{pageBean.limit} offset #{pageBean.endIndex}
+	</select>
+	
+	
+	
+	
+	
+	
+	<select id="findAllByParam"  parameterType="Demo" resultType="demo">
+		select <include refid="fields" /> from demo 
+		<include refid="dynamicWhere" />
+	</select>
+	
+	
+	<select id="query"  parameterType="Demo" resultType="demo">
+		select  <include refid="fields" /> from demo
+		<include refid="dynamicWhere" />
+	</select>
+	
+</mapper>

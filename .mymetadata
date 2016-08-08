@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ewsm"
+  id="myeclipse.1469087542321"
+  context-root="/ewsm"
+  j2ee-spec="5.0"
+  archive="ewsm.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
