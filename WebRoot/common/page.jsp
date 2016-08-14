@@ -23,6 +23,11 @@
 <!-- 分页 -->
 <div style="text-align: right;">
 <ul class="pagination" >
+<!-- 
+<li class="disabled" >
+         <a>转到<input type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "  onclick="goClickCountPage()"  id ="keyInput" onchange="goPageCount()">页</a>
+        <a><button class="page-btn" onclick="goClickCountPage(),goPageCount()">跳转</button></a>
+</li> -->
 	<c:choose>
 		<c:when test="${ 1 == pageBean.page}">
 			<li class="disabled" >

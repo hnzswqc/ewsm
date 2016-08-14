@@ -186,4 +186,19 @@ public class DemoController extends BaseController<Demo>{
 		return toJson(new Json(true,pageBean.getList(),pageBean.getTotalRecords()));
 	}
 	
+	/**
+	 * 
+	 * 方法描述：进入添加界面<br/>
+	 * 创建人：开发部笔记本   <br/>
+	 * 创建时间：2016-8-4 下午09:25:46<br/>         
+	 * @param <br/>   
+	 * @return <br/>   
+	 * @version   1.0<br/>
+	 */
+	@RequestMapping(value="showChart")
+	public ModelAndView chartPage(){
+		ModelAndView modelAndView = new ModelAndView("demo/chart");
+		return modelAndView;
+	}
+	
 }

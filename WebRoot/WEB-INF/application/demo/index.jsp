@@ -27,7 +27,7 @@
 		<input type="hidden" name="page" id="reqPage" value="${pageBean.page }">
 	</form>
 	<div class="container-fluid" style="margin-top: 10px;">
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
 		   <div class="panel-heading">
 		      <h3 class="panel-title">
 		 		      查询条件
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 		
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
 		   <div class="panel-heading">
 		      <h3 class="panel-title">
 		 		     demo详细信息

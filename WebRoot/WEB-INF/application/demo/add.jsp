@@ -28,7 +28,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="span12">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 					   <div class="panel-heading">
 					      <h3 class="panel-title">
 					 		     ${empty demo.id ? '添加' : '修改'}demo

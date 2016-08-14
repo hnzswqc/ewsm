@@ -1,0 +1,39 @@
+/*表格表头居中*/
+table th{text-align: center!import;}
+/*表格内容过多默认显示...*/
+.table {   
+   table-layout: fixed;   
+   margin: 0px;   
+}   
+.table tr td {   
+    text-overflow: ellipsis; /* for IE */  
+    -moz-text-overflow: ellipsis; /* for Firefox,mozilla */  
+    overflow: hidden;   
+    white-space: nowrap;   
+    text-align: left   
+}
+
+.modal-header{
+  background-color: #428BCA!important;
+  border-color: #FFFFFF!important;
+  color:#FFFFFF;
+  border-radius: 6px 6px 0px 0px;;
+}
+/*面板primary样*/
+.navbar-default {
+  background-color: #428BCA!important;
+  border-color: #FFFFFF!important;
+  font-weight: bold;
+}
+.navbar-brand{
+	color:#FFFFFF!important;
+	font-weight: bold;
+}
+.navbar-nav a{
+	color:#FFFFFF!important;
+	font-weight: bold;
+}
+.panel-body-height{
+	height:150px;
+	overflow: auto;
+}

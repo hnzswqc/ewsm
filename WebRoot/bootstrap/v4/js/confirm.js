@@ -3,8 +3,8 @@
     var html = '<div id="[Id]" class="modal fade" role="dialog" aria-labelledby="modalLabel">' +
                '<div class="modal-dialog modal-sm">' +
                  '<div class="modal-content">' +
-                   '<div class="modal-header">' +
-                     '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>' +
+                   '<div id="[Id]" class="modal-header">' +
+                     '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></button>' +
                      '<h4 class="modal-title" id="modalLabel">[Title]</h4>' +
                    '</div>' +
                    '<div class="modal-body">' +
@@ -23,7 +23,7 @@
                '<div class="modal-dialog">' +
                  '<div class="modal-content">' +
                    '<div class="modal-header">' +
-                     '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span></button>' +
+                     '<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></button>' +
                      '<h4 class="modal-title" id="modalLabel">[Title]</h4>' +
                    '</div>' +
                    '<div class="modal-body">' +
@@ -58,11 +58,16 @@
       $('body').append(content);
       $('#' + modalId).modal({
         width: options.width,
-        backdrop: 'static'
+        backdrop: 'static',
+        keyboard: false
       });
+      
       $('#' + modalId).on('hide.bs.modal', function (e) {
         $('body').find('#' + modalId).remove();
       });
+      //$('#' + modalId).draggabilly({
+     	// handle: '.modal-header'//只针对head。
+     //});//拖拽
       return modalId;
     }
  
@@ -138,7 +143,10 @@
         target.find('.modal-body').load(options.url);
         if (options.onReady())
           options.onReady.call(target);
-        target.modal();
+        target.modal({backdrop: 'static', keyboard: false});//Ese不关闭，点击空白不关闭
+       // $('#' + modalId).draggabilly({
+       // 	 handle: '.modal-header'
+       // });//拖拽
         target.on('shown.bs.modal', function (e) {
           if (options.onReady(e))
             options.onReady.call(target, e);

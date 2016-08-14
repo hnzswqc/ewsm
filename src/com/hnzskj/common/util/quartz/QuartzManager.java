@@ -164,11 +164,11 @@ public class QuartzManager {
 		s1.start();
 		
 		System.err.println(s1.getSchedulerName());
-		//Scheduler s2 =schedulerBuild("s2","d","t","0/1 * * * * ?",QuartzManager2.class);
-		Scheduler s2=sf.getScheduler("s1");
+		Scheduler s2 =schedulerBuild("s2","d","t","0/1 * * * * ?",QuartzTest.class);
+		//Scheduler s2=sf.getScheduler("s1");
 		s2.start();
 		System.err.println(s2.getSchedulerName());
-		s2.shutdown();
+		//s2.shutdown();
 		    
 	}
 }
