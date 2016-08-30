@@ -24,6 +24,8 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring/spring-webmvc-4.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/sql/jtds-1.2.5.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/sql/mysql-connector-java-5.1.7-bin.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/jackson-core-asl-1.9.13.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/jackson-mapper-asl-1.9.13.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/sql/DmJdbcDriver-6.0.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/common/commons-beanutils-1.7.0.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/common/commons-beanutils-core-1.8.2.jar"/>
@@ -38,11 +40,10 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/common/commons-io-2.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/common/commons-lang-2.5.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/common/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/gson-1.6.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log/slf4j-api-1.6.0.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log/slf4j-log4j12-1.6.0.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/quartz/quartz-2.2.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/quartz/quartz-jobs-2.2.1.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/json-lib-2.4-jdk15.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/ezmorph-1.0.1.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

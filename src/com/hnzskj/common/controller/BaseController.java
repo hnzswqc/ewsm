@@ -7,10 +7,12 @@
  */
 package com.hnzskj.common.controller;
 
+import java.lang.reflect.Type;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 
+import com.google.gson.Gson;
 
 /**    
  * 项目名称：ewsm   <br/>
@@ -45,6 +47,33 @@ public class BaseController<T>{
 	 * 操作失败
 	 */
 	public static final String FAIL_STRING="操作失败";
+	
+	
+	/**
+	 * 
+	 * 方法描述：json数据<br/>
+	 * 创建人：开发部笔记本   <br/>
+	 * 创建时间：2016-7-24 下午04:36:59<br/>         
+	 * @param <br/>   
+	 * @return <br/>   
+	 * @version   1.0<br/>
+	 */
+	public String toJson(Object obj) {
+		return new Gson().toJson(obj);
+	}
+
+	/**
+	 * 
+	 * 方法描述：json转实体<br/>
+	 * 创建人：开发部笔记本   <br/>
+	 * 创建时间：2016-7-24 下午04:37:07<br/>         
+	 * @param <br/>   
+	 * @return <br/>   
+	 * @version   1.0<br/>
+	 */
+	public Class<?> fromJson(String json, Type typeOfT) {
+		return new Gson().fromJson(json, typeOfT);
+	}
 	
 	
 }

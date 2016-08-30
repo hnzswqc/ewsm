@@ -41,9 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<ul class="nav navbar-nav navbar-right">
 							<li>
 								 <a href="javascript:window.location.href='jsp/demo/list_time.jsp'">定时规则管理&nbsp;&nbsp;</a>
-							</li>
-							<li>
-								 <a href="javascript:window.location.href='<%=basePath%>demo/index.shtml'">demo</a>
+								 
 							</li>
 						</ul>
 					</div>
@@ -422,7 +420,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			//	title:"添加信息定时任务信息",
 			//	url:"<%=basePath%>jsp/demo/add.jsp",
 			//});
-			$("#window").modal({backdrop: 'static',keyboard: false});
+			$("#window").modal();
 
 		}
 		

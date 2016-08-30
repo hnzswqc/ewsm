@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>500错误</title>
+    <title>不存在的访问路径</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,13 +24,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
- 	 500错误：服务器内部出现错误，请联系管理。
-  	<div align="left" style="padding-top: 100px;padding-left: 10px;display: none;">
+  	<div align="center" style="padding-top: 100px;">
+  		500错误：服务器内部出现错误！
 		<div>系统执行发生错误，信息描述如下：</div>
-		<div>错误状态代码是：${pageContext.errorData.statusCode}</div>
-		<div>错误发生页面是：${pageContext.errorData.requestURI}</div>
-		<div>错误信息：${pageContext.exception}</div>
-		<div>
+			<div>错误状态代码是：${pageContext.errorData.statusCode}</div>
+			<div>错误发生页面是：${pageContext.errorData.requestURI}</div>
+			<div>错误信息：${pageContext.exception}</div>
+			<div>
 			错误堆栈信息：<br/>
 			<c:forEach var="trace" items="${pageContext.exception.stackTrace}">
 			<p>${trace}</p>

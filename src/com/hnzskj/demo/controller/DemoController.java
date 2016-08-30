@@ -98,7 +98,7 @@ public class DemoController extends BaseController<Demo>{
 	@ResponseBody
 	public String add(@ModelAttribute()Demo demo){
 		boolean result = demoService.add(demo);
-		return  new Json(result,result?SUCCESS_STRING:FAIL_STRING).toJson();
+		return  toJson(new Json(result,result?SUCCESS_STRING:FAIL_STRING));
 	}
 	
 	/**
@@ -114,7 +114,7 @@ public class DemoController extends BaseController<Demo>{
 	@ResponseBody
 	public String delete(@ModelAttribute()Demo demo){
 		boolean result = demoService.delete(demo);
-		return  new Json(result,result?SUCCESS_STRING:FAIL_STRING).toJson();
+		return  toJson(new Json(result,result?SUCCESS_STRING:FAIL_STRING));
 	}
 	
 	/**
@@ -134,7 +134,7 @@ public class DemoController extends BaseController<Demo>{
 			Serializable [] strings = ids.split(",");
 			result = demoService.delete(strings);
 		}
-		return  new Json(result,result?SUCCESS_STRING:FAIL_STRING).toJson();
+		return  toJson(new Json(result,result?SUCCESS_STRING:FAIL_STRING));
 	}
 	
 	
@@ -151,7 +151,7 @@ public class DemoController extends BaseController<Demo>{
 	@ResponseBody
 	public String update(@ModelAttribute()Demo demo){
 		boolean result = demoService.update(demo);
-		return  new Json(result,result?SUCCESS_STRING:FAIL_STRING).toJson();
+		return  toJson(new Json(result,result?SUCCESS_STRING:FAIL_STRING));
 	}
 	
 	/**
@@ -167,7 +167,7 @@ public class DemoController extends BaseController<Demo>{
 	@ResponseBody
 	public String find(@ModelAttribute()Demo demo,@ModelAttribute()PageBean<Demo> pageBean){
 		pageBean = demoService.find(pageBean, demo);
-		return new Json(true,pageBean.getList(),pageBean.getTotalRecords()).toJson();
+		return toJson(new Json(true,pageBean.getList(),pageBean.getTotalRecords()));
 	}
 	
 	/**
@@ -183,7 +183,7 @@ public class DemoController extends BaseController<Demo>{
 	@ResponseBody
 	public String findAll(@ModelAttribute()Demo demo){
 		PageBean<Demo> pageBean = demoService.find(null, demo);
-		return new Json(true,pageBean.getList(),pageBean.getTotalRecords()).toJson();
+		return toJson(new Json(true,pageBean.getList(),pageBean.getTotalRecords()));
 	}
 	
 	/**

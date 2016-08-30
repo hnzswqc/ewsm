@@ -40,10 +40,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							 <a href="javascript:window.location.href='jsp/demo/list_time.jsp'">定时规则管理</a>
-						</li>
-						<li>
-							 <a href="javascript:window.location.href='<%=basePath%>demo/index.shtml'">demo</a>
+							 <a href="javascript:window.location.href='jsp/demo/list_time.jsp'">定时规则管理&nbsp;&nbsp;</a>
+							 
 						</li>
 					</ul>
 				</div>

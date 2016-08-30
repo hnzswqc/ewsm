@@ -7,14 +7,11 @@
  */
 package com.hnzskj.common.model;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.List;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import net.sf.json.JsonConfig;
-
-import com.hnzskj.common.util.date.DateUtil;
+import com.google.gson.Gson;
 
 /**    
  * 项目名称：ewsm   <br/>
@@ -189,60 +186,21 @@ public class Json implements Serializable{
 	public void setDataSize(Integer dataSize) {
 		this.dataSize = dataSize;
 	}
+	
 
-	/**
-	 * 
-	 * 方法描述：转化jsonlist<br/>
-	 * 创建人：开发部笔记本   <br/>
-	 * 创建时间：2016-8-30 下午05:41:27<br/>         
-	 * @param <br/>   
-	 * @return <br/>   
-	 * @version   1.0<br/>
-	 */
-	@SuppressWarnings("unchecked")
-	public List<Object> fromJson(JSONArray jsonArray,Object arg){
-		List<Object> list = JSONArray.toList(jsonArray, arg, new JsonConfig());
-		return list;
-	}
-	
-	/**
-	 * 
-	 * 方法描述：转换json对象<br/>
-	 * 创建人：开发部笔记本   <br/>
-	 * 创建时间：2016-8-30 下午05:41:22<br/>         
-	 * @param <br/>   
-	 * @return <br/>   
-	 * @version   1.0<br/>
-	 */
-	public JSONObject fromJson(String json){
-		JSONObject data = JSONObject.fromObject(json);
-		return  data;
-	}
-	
-	/**
-	 * 
-	 * 方法描述：生成json字符窜<br/>
-	 * 创建人：开发部笔记本   <br/>
-	 * 创建时间：2016-8-30 下午05:44:32<br/>         
-	 * @param <br/>   
-	 * @return <br/>   
-	 * @version   1.0<br/>
-	 */
-	public String toJson(){
-		JSONObject json = new JSONObject();
-		json.put("success", success);
-		json.put("msg", msg);
-		json.put("data", data);
-		json.put("dataSize", dataSize);
-		json.put("time",DateUtil.getCurrentTime());
-		return json.toString();
-	}
-	
-	
-	
 	public static void main(String[] args) {
-		Json json = new Json(true);
-		JSONObject jsonObject = json.fromJson(json.toJson());
-		System.out.println(jsonObject.opt("success"));
+		Json json = new Json(true,"哈哈哈");
+		 try{  
+	            FileOutputStream fs = new FileOutputStream("e://json.ser");  
+	            ObjectOutputStream os =  new ObjectOutputStream(fs);  
+	            os.writeObject(json);  
+	            os.close();  
+	        }catch(Exception ex){  
+	            ex.printStackTrace();  
+	        }  
+	        
+	        Gson gson = new Gson();
+	        System.out.println(gson.toJson(json));
+	        System.out.println(gson.toJsonTree(json));
 	}
 }
