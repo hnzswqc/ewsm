@@ -69,6 +69,134 @@ public class DateBase extends BaseModel implements Serializable {
 	 * 创建者
 	 */
 	private String createUserUuid;
+
+	/**
+	 * 数据库主键
+	 * @return the dbUuid
+	 */
+	public String getDbUuid() {
+		return dbUuid;
+	}
+
+	/**
+	 * 数据库主键
+	 * @param dbUuid the dbUuid to set
+	 */
+	public void setDbUuid(String dbUuid) {
+		this.dbUuid = dbUuid;
+	}
+
+	/**
+	 * 数据库名称
+	 * @return the dbName
+	 */
+	public String getDbName() {
+		return dbName;
+	}
+
+	/**
+	 * 数据库名称
+	 * @param dbName the dbName to set
+	 */
+	public void setDbName(String dbName) {
+		this.dbName = dbName;
+	}
+
+	/**
+	 * 数据库驱动
+	 * @return the dbDriver
+	 */
+	public String getDbDriver() {
+		return dbDriver;
+	}
+
+	/**
+	 * 数据库驱动
+	 * @param dbDriver the dbDriver to set
+	 */
+	public void setDbDriver(String dbDriver) {
+		this.dbDriver = dbDriver;
+	}
+
+	/**
+	 * 数据库url链接
+	 * @return the dbUrl
+	 */
+	public String getDbUrl() {
+		return dbUrl;
+	}
+
+	/**
+	 * 数据库url链接
+	 * @param dbUrl the dbUrl to set
+	 */
+	public void setDbUrl(String dbUrl) {
+		this.dbUrl = dbUrl;
+	}
+
+	/**
+	 * 数据库用户
+	 * @return the dbUser
+	 */
+	public String getDbUser() {
+		return dbUser;
+	}
+
+	/**
+	 * 数据库用户
+	 * @param dbUser the dbUser to set
+	 */
+	public void setDbUser(String dbUser) {
+		this.dbUser = dbUser;
+	}
+
+	/**
+	 * 数据密码
+	 * @return the dbPassword
+	 */
+	public String getDbPassword() {
+		return dbPassword;
+	}
+
+	/**
+	 * 数据密码
+	 * @param dbPassword the dbPassword to set
+	 */
+	public void setDbPassword(String dbPassword) {
+		this.dbPassword = dbPassword;
+	}
+
+	/**
+	 * 创建时间
+	 * @return the createTime
+	 */
+	public String getCreateTime() {
+		return createTime;
+	}
+
+	/**
+	 * 创建时间
+	 * @param createTime the createTime to set
+	 */
+	public void setCreateTime(String createTime) {
+		this.createTime = createTime;
+	}
+
+	/**
+	 * 创建者
+	 * @return the createUserUuid
+	 */
+	public String getCreateUserUuid() {
+		return createUserUuid;
+	}
+
+	/**
+	 * 创建者
+	 * @param createUserUuid the createUserUuid to set
+	 */
+	public void setCreateUserUuid(String createUserUuid) {
+		this.createUserUuid = createUserUuid;
+	}
 	
 	
 }
