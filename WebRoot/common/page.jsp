@@ -7,6 +7,12 @@
 		document.forms.namedItem("queryForm").submit();	
 	}
 
+	//分页
+	function goLimitPage( limit ) {
+		document.getElementById("limit").value = limit;
+		document.forms.namedItem("queryForm").submit();	
+	}
+
 	//跳转到该页
 	function jumpToThePage(obj){
 		var currentPage =$("#toThePage").val();
@@ -21,6 +27,36 @@
 	}
 	</script>
 <!-- 分页 -->
+
+
+
+<div class="pull-left pagination-detail">
+	<span class="pagination-info">当前每页显示</span><span class="page-list">
+		<span class="btn-group dropup">
+			<button
+				type="button" class="btn btn-default dropdown-toggle"
+				data-toggle="dropdown">
+				<span class="page-size">${pageBean.limit }</span>
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li class="${pageBean.limit ==10 ?'active':''}">
+					<a href="javascript:goLimitPage(10);" >10</a>
+				</li>
+				<li class="${pageBean.limit ==25 ?'active':''}">
+					<a href="javascript:goLimitPage(25);" >25</a>
+				</li>
+				<li class="${pageBean.limit ==50 ?'active':''}">
+					<a href="javascript:goLimitPage(50);">50</a>
+				</li>
+				<li class="${pageBean.limit ==100 ?'active':''}">
+					<a href="javascript:goLimitPage(100);">100</a>
+				</li>
+			</ul>
+	</span> 条</span>
+</div>
+
+
 <div style="text-align: right;">
 <ul class="pagination" >
 <!-- 

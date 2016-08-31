@@ -42,7 +42,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/log/slf4j-log4j12-1.6.0.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/quartz/quartz-2.2.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/quartz/quartz-jobs-2.2.1.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/ezmorph-1.0.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/json/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

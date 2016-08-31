@@ -25,6 +25,7 @@
   <body>
   	<form action="<%=basePath%>demo/index.shtml" id="queryForm" name="queryForm" method="post">
 		<input type="hidden" name="page" id="reqPage" value="${pageBean.page }">
+		<input type="hidden" name="limit" id="limit" value="${pageBean.limit }">
 	</form>
 	<div class="container-fluid" style="margin-top: 10px;">
 		<div class="panel panel-primary">
